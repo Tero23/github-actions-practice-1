@@ -14,3 +14,10 @@ on:
       - "dev/**" # dev/(anything including /)
     paths-ignore:
       - ".github/workflows/*"
+
+jobs:
+  Events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Event Details
+        run: echo ${{ toJSON(github) }}
