@@ -1,0 +1,16 @@
+name: Events (Trigers)
+
+on:
+  pull_request: # When a pull_request has opened targetting the main branch
+    types:
+      - opened
+    branches:
+      - main
+  workflow_dispatch:
+  push: # When a push happens on the main branch or a dev-(anything) branch or a dev/(anything including /) branch, ignoring the changes that happen in the .github/workflows folder
+    branches:
+      - main # main
+      - "dev-*" # dev-(anything)
+      - "dev/**" # dev/(anything including /)
+    paths-ignore:
+      - ".github/workflows/*"
